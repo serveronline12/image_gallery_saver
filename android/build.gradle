@@ -24,18 +24,24 @@ rootProject.allprojects {
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
-android {
-    compileSdkVersion 30
+// image_gallery_saver/android/build.gradle
 
-    sourceSets {
-        main.java.srcDirs += 'src/main/kotlin'
-    }
+android {
+    compileSdkVersion 33
+
     defaultConfig {
-        minSdkVersion 16
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        minSdkVersion 21
+        targetSdkVersion 33
     }
-    lintOptions {
-        disable 'InvalidPackage'
+
+    // Optional: add if needed
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
     }
 }
 
